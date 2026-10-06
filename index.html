@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOURNHC | Your Nurse Health Coach | Modern Health Optimization & Coaching</title>
+  <meta name="description" content="Nurse-led health coaching, metabolic audits, peptide strategy, and personalized health optimization by Mark Loftin, RN." />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Brand Palette - Modern High-End Health Optimization */
+      --bg-dark: #070a0f;
+      --bg-surface: #0f172a;
+      --bg-surface-elevated: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      /* Primary Accents (Bio-Emerald & Precision Cyan) */
+      --emerald-accent: #10b981;
+      --emerald-hover: #059669;
+      --emerald-glow: rgba(16, 185, 129, 0.25);
+      --cyan-accent: #06b6d4;
+      --cyan-glow: rgba(6, 182, 212, 0.2);
+      --gold-accent: #f59e0b;
+      
+      /* Borders & Overlay Effects */
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(16, 185, 129, 0.4);
+      --glass-bg: rgba(15, 23, 42, 0.85);
+      --glass-blur: blur(16px);
+      
+      /* Spacing & Layout */
+      --header-height: 84px;
+      --container-max: 1320px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      overflow-x: hidden;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      z-index: 1000;
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+    }
+
+    .site-header.scrolled {
+      background: rgba(7, 10, 15, 0.94);
+      border-bottom-color: rgba(16, 185, 129, 0.2);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+    }
+
+    .header-container {
+      max-width: var(--container-max);
+      height: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    /* ZONE 1: LOGO BRAND AREA */
+    .header-logo-zone {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .logo-brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      user-select: none;
+      padding: 4px 0;
+      text-decoration: none;
+    }
+
+    .header-logo-img {
+      height: 44px;
+      width: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      opacity: 0;
+      transform: scale(0.92) translateY(4px);
+      animation: logoImageReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+      filter: contrast(1.15) brightness(0.88) saturate(1.1) drop-shadow(0 2px 10px rgba(16, 185, 129, 0.3));
+      border: 1.5px solid rgba(16, 185, 129, 0.35);
+      background: var(--bg-surface);
+      transition: transform var(--transition-fast), filter var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .logo-brand-wrap:hover .header-logo-img {
+      transform: scale(1.08);
+      border-color: var(--emerald-accent);
+      filter: contrast(1.2) brightness(0.98) saturate(1.2) drop-shadow(0 4px 18px rgba(16, 185, 129, 0.5));
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .logo-text-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      opacity: 0;
+      animation: logoTextReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.35s;
+    }
+
+    .logo-wordmark {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: var(--text-main);
+      line-height: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-wordmark .accent-text {
+      background: linear-gradient(135deg, var(--emerald-accent) 0%, var(--cyan-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo-subtext {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 3px;
+      white-space: nowrap;
+    }
+
+    @keyframes logoImageReveal {
+      0% {
+        opacity: 0;
+        transform: scale(0.85) translateY(4px);
+        filter: blur(4px) brightness(0.7) contrast(1.2);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        filter: contrast(1.15) brightness(0.88) saturate(1.1) drop-shadow(0 2px 10px rgba(16, 185, 129, 0.3));
+      }
+    }
+
+    @keyframes logoTextReveal {
+      0% {
+        opacity: 0;
+        transform: translateX(-8px);
+        filter: blur(4px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+      }
+    }
+
+    /* ZONE 2: PRIMARY NAVIGATION STYLES */
+    .header-nav-zone {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-menu-list {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      font-size: 0.925rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 8px 0;
+      transition: color var(--transition-fast);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--emerald-accent), var(--cyan-accent));
+      border-radius: 2px;
+      transition: width var(--transition-fast);
+    }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* ZONE 3: RIGHT-SIDE ACTIONS */
+    .header-actions-zone {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .btn-secondary-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      transition: all var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .btn-secondary-header:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--emerald-accent);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary-header {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #04070a;
+      background: linear-gradient(135deg, var(--emerald-accent) 0%, #34d399 100%);
+      border: 1px solid transparent;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+      transition: all var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .btn-primary-header:hover {
+      background: linear-gradient(135deg, #34d399 0%, var(--cyan-accent) 100%);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+      transform: translateY(-1px);
+    }
+
+    /* MOBILE NAVIGATION TOGGLE BUTTON */
+    .mobile-nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 32px;
+      height: 22px;
+      cursor: pointer;
+      z-index: 1001;
+      padding: 0;
+      border: none;
+      background: transparent;
+    }
+
+    .mobile-nav-toggle span {
+      width: 100%;
+      height: 2.5px;
+      background-color: var(--text-main);
+      border-radius: 4px;
+      transition: all var(--transition-fast);
+      transform-origin: left center;
+    }
+
+    .mobile-nav-toggle.open span:nth-child(1) {
+      transform: rotate(45deg) translate(2px, -1px);
+      background-color: var(--emerald-accent);
+    }
+
+    .mobile-nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+      width: 0%;
+    }
+
+    .mobile-nav-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(2px, 1px);
+      background-color: var(--emerald-accent);
+    }
+
+    /* Mobile Navigation Drawer */
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(7, 10, 15, 0.98);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      padding: 100px 32px 40px;
+      transform: translateX(100%);
+      transition: transform var(--transition-smooth);
+    }
+
+    .mobile-menu-overlay.open {
+      transform: translateX(0);
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .mobile-nav-link {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-main);
+      display: block;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .mobile-nav-actions {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mobile-nav-actions .btn-primary-header,
+    .mobile-nav-actions .btn-secondary-header {
+      justify-content: center;
+      width: 100%;
+      padding: 14px;
+      font-size: 1rem;
+    }
+
+    /* AUDIT MODAL DIALOG */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 12, 0.85);
+      backdrop-filter: blur(12px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-smooth);
+    }
+
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 540px;
+      padding: 32px;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      transform: scale(0.95) translateY(10px);
+      transition: transform var(--transition-smooth);
+    }
+
+    .modal-backdrop.active .modal-box {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      line-height: 1;
+      padding: 4px;
+      border-radius: 50%;
+      transition: color var(--transition-fast);
+    }
+
+    .modal-close-btn:hover {
+      color: var(--emerald-accent);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.825rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: border-color var(--transition-fast);
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--emerald-accent);
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, var(--emerald-accent), var(--cyan-accent));
+      color: #04070a;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: var(--radius-md);
+      transition: opacity var(--transition-fast);
+      margin-top: 10px;
+    }
+
+    .form-submit-btn:hover {
+      opacity: 0.92;
+    }
+
+    .form-success-banner {
+      display: none;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid var(--emerald-accent);
+      color: var(--text-main);
+      padding: 16px;
+      border-radius: var(--radius-md);
+      text-align: center;
+      margin-top: 16px;
+      font-size: 0.9rem;
+    }
+
+    /* HERO SECTION & BODY INTEGRATION */
+    .hero-section {
+      position: relative;
+      padding-top: calc(var(--header-height) + 60px);
+      padding-bottom: 100px;
+      background: radial-gradient(circle at 50% 10%, rgba(16, 185, 129, 0.08) 0%, rgba(6, 182, 212, 0.03) 35%, transparent 70%),
+                  linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-surface) 100%);
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .hero-glow-1 {
+      position: absolute;
+      top: -100px;
+      left: 15%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--emerald-glow) 0%, transparent 70%);
+      pointer-events: none;
+      filter: blur(60px);
+    }
+
+    .hero-container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--emerald-accent);
+      margin-bottom: 24px;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 3.25rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: var(--text-main);
+    }
+
+    .hero-title .text-gradient {
+      background: linear-gradient(135deg, #ffffff 30%, var(--emerald-accent) 70%, var(--cyan-accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-visual-card {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-visual-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-lg);
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(255, 255, 255, 0.05), rgba(6, 182, 212, 0.2));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    .card-header-status {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--emerald-accent);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--emerald-accent);
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .metric-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-md);
+      padding: 16px;
+    }
+
+    .metric-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+    }
+
+    .metric-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .metric-value .unit {
+      font-size: 0.8rem;
+      color: var(--emerald-accent);
+      font-weight: 500;
+    }
+
+    .coach-profile-strip {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .coach-avatar-placeholder {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 2px solid var(--emerald-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--emerald-accent);
+      font-size: 0.9rem;
+    }
+
+    .coach-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .coach-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .coach-title {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* SERVICES SECTION */
+    .services-section {
+      padding: 100px 0;
+      background: var(--bg-dark);
+      position: relative;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 60px;
+      padding: 0 24px;
+    }
+
+    .section-tag {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--emerald-accent);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .services-grid {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      transition: all var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--emerald-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .service-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .service-card-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .service-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--emerald-accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: auto;
+      transition: gap var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .service-link:hover {
+      gap: 10px;
+    }
+
+    /* ABOUT SECTION */
+    .about-section {
+      padding: 100px 0;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .about-container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .about-badge-card {
+      background: var(--bg-dark);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+
+    .about-avatar-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid var(--emerald-accent);
+      margin: 0 auto 20px;
+      display: block;
+      box-shadow: 0 0 20px var(--emerald-glow);
+    }
+
+    /* FOOTER & CONTACT */
+    .site-footer {
+      background: #040609;
+      border-top: 1px solid var(--border-subtle);
+      padding: 60px 0 30px;
+      font-size: 0.875rem;
+      color: var(--text-dim);
+    }
+
+    .footer-container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo-img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      border: 1.5px solid rgba(16, 185, 129, 0.3);
+      filter: contrast(1.15) brightness(0.88) saturate(1.1) drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+      background: var(--bg-surface);
+      transition: transform var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .footer-logo-img:hover {
+      transform: scale(1.05);
+      border-color: var(--emerald-accent);
+    }
+
+    .footer-brand-p {
+      margin-top: 16px;
+      color: var(--text-muted);
+      max-width: 320px;
+      line-height: 1.6;
+    }
+
+    .footer-heading {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a:hover {
+      color: var(--emerald-accent);
+    }
+
+    .footer-bottom {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 24px 24px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* RESPONSIVE BREAKPOINT SYSTEM */
+    @media (max-width: 1120px) {
+      .header-nav-zone {
+        display: none;
+      }
+      .mobile-nav-toggle {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-container, .about-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      .footer-container {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .header-actions-zone .btn-secondary-header {
+        display: none;
+      }
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+      .hero-title {
+        font-size: 2.1rem;
+      }
+      .hero-cta-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-cta-group a, .hero-cta-group button {
+        justify-content: center;
+      }
+    }
+
+    /* ACCESSIBILITY: REDUCED MOTION OVERRIDE */
+    @media (prefers-reduced-motion: reduce) {
+      .header-logo-img,
+      .logo-text-group {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER EXPERIENCE -->
+  <header class="site-header" id="mainHeader">
+    <div class="header-container">
+      
+      <!-- ZONE 1: LOGO & BRANDING AREA -->
+      <div class="header-logo-zone">
+        <a href="#top" class="logo-brand-wrap" aria-label="YOURNHC - Your Nurse Health Coach Home">
+          <img 
+            src="https://raw.githubusercontent.com/CreativeTugsDotCom/as/refs/heads/main/Screenshot%202026-10-06%20230532.png" 
+            alt="YOURNHC Emblem" 
+            class="header-logo-img" 
+            onerror="this.onerror=null; this.src='https://placehold.co/80x80/0f172a/10b981?text=NHC';"
+          />
+          <div class="logo-text-group">
+            <span class="logo-wordmark">YOUR<span class="accent-text">NHC</span></span>
+            <span class="logo-subtext">Your Nurse Health Coach</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- ZONE 2: PRIMARY NAVIGATION -->
+      <nav class="header-nav-zone" aria-label="Main Navigation">
+        <ul class="nav-menu-list">
+          <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="#audit" class="nav-link">Metabolic Audit</a></li>
+          <li class="nav-item"><a href="#biohacking" class="nav-link">Biohacking & Peptides</a></li>
+          <li class="nav-item"><a href="#corporate" class="nav-link">Workplace Wellness</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">About Mark Loftin</a></li>
+        </ul>
+      </nav>
+
+      <!-- ZONE 3: RIGHT-SIDE ACTION BUTTONS -->
+      <div class="header-actions-zone">
+        <!-- Secondary CTA: Direct Phone Contact -->
+        <a href="tel:9803495944" class="btn-secondary-header">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>980-349-5944</span>
+        </a>
+
+        <!-- Primary CTA: High-Conversion Metabolic Audit Link -->
+        <button type="button" class="btn-primary-header open-audit-modal">
+          <span>Schedule Audit</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+
+        <!-- Mobile Nav Menu Trigger -->
+        <button class="mobile-nav-toggle" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION OVERLAY -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <ul class="mobile-nav-list">
+      <li><a href="#services" class="mobile-nav-link">Services</a></li>
+      <li><a href="#audit" class="mobile-nav-link">Metabolic Audit</a></li>
+      <li><a href="#biohacking" class="mobile-nav-link">Biohacking & Peptides</a></li>
+      <li><a href="#corporate" class="mobile-nav-link">Workplace Wellness</a></li>
+      <li><a href="#about" class="mobile-nav-link">About Mark Loftin, RN</a></li>
+    </ul>
+
+    <div class="mobile-nav-actions">
+      <button type="button" class="btn-primary-header open-audit-modal">Schedule Metabolic Audit</button>
+      <a href="tel:9803495944" class="btn-secondary-header">Call 980-349-5944</a>
+    </div>
+  </div>
+
+  <!-- MAIN HERO SECTION -->
+  <section class="hero-section" id="top">
+    <div class="hero-glow-1"></div>
+    <div class="hero-container">
+      
+      <!-- Hero Copy Column -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>Nurse-Led Health Optimization</span>
+        </div>
+        
+        <h1 class="hero-title">
+          Optimize Your Biology with <span class="text-gradient">Clinical Precision.</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+          Personalized 1-on-1 Health Coaching, Metabolic Audits, Weight Loss Support, and Peptide Coaching guided by Mark Loftin, RN. Move beyond generic advice into targeted biological optimization.
+        </p>
+
+        <div class="hero-cta-group">
+          <button type="button" class="btn-primary-header open-audit-modal" style="padding: 14px 28px; font-size: 0.95rem;">
+            <span>Start Your Metabolic Audit</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+          
+          <a href="#services" class="btn-secondary-header" style="padding: 14px 24px; font-size: 0.95rem;">
+            <span>Explore Programs</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Visual Dashboard / Biological Metric Preview Card -->
+      <div class="hero-visual-card">
+        <div class="card-header-status">
+          <div class="status-indicator">
+            <span class="pulse-dot"></span>
+            <span>Metabolic Health Score</span>
+          </div>
+          <span style="font-size: 0.75rem; color: var(--emerald-accent); font-weight: 700; background: rgba(16,185,129,0.1); padding: 4px 10px; border-radius: 12px;">OPTIMIZED</span>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric-box">
+            <div class="metric-label">Glucose Stability</div>
+            <div class="metric-value">94.2 <span class="unit">mg/dL</span></div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Resting HR</div>
+            <div class="metric-value">58 <span class="unit">bpm</span></div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Recovery Score</div>
+            <div class="metric-value">92% <span class="unit">Optimal</span></div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Insulin Response</div>
+            <div class="metric-value">Normal <span class="unit">Zone</span></div>
+          </div>
+        </div>
+
+        <!-- Nurse Coach Credential Strip -->
+        <div class="coach-profile-strip">
+          <div class="coach-avatar-placeholder">ML</div>
+          <div class="coach-info">
+            <span class="coach-name">Mark Loftin, RN</span>
+            <span class="coach-title">Your Nurse Health Coach • Davidson, NC</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CORE SERVICES SECTION -->
+  <section class="services-section" id="services">
+    <div class="section-header">
+      <span class="section-tag">Science-Backed Services</span>
+      <h2 class="section-title">Designed to Reclaim Your Metabolic Power</h2>
+      <p style="color: var(--text-muted); font-size: 0.95rem;">Nurse-led coaching strategies combining genetic principles, lifestyle interventions, and metabolic science.</p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Service 1: Metabolic Audit -->
+      <div class="service-card" id="audit">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+        </div>
+        <h3 class="service-card-title">Metabolic Audit</h3>
+        <p class="service-card-desc">An in-depth assessment evaluating stress, sleep, carbohydrate tolerance, and resting indicators to identify key bio-markers for improvement.</p>
+        <span class="service-link open-audit-modal">
+          <span>Schedule Audit</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </span>
+      </div>
+
+      <!-- Service 2: Weight Loss & GLP-1 Support -->
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        </div>
+        <h3 class="service-card-title">Weight Loss Coaching</h3>
+        <p class="service-card-desc">Sustainable weight management tailored to evolutionary science, GLP-1 optimization, and long-term metabolic flexibility without starvation diets.</p>
+        <span class="service-link open-audit-modal">
+          <span>Explore Program</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </span>
+      </div>
+
+      <!-- Service 3: Peptide Coaching -->
+      <div class="service-card" id="biohacking">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        </div>
+        <h3 class="service-card-title">Peptide & Biohacking Coaching</h3>
+        <p class="service-card-desc">Educational coaching on cellular restoration, peptide strategies, NAD+, and longevity protocols under experienced nurse guidance.</p>
+        <span class="service-link open-audit-modal">
+          <span>Get Started</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </span>
+      </div>
+
+      <!-- Service 4: Workplace Health -->
+      <div class="service-card" id="corporate">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </div>
+        <h3 class="service-card-title">Workplace Wellness</h3>
+        <p class="service-card-desc">Nurse-led health coaching, health screenings, and employee vitality programs to reduce absenteeism and improve corporate performance.</p>
+        <span class="service-link open-audit-modal">
+          <span>Corporate Solutions</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT MARK LOFTIN, RN SECTION -->
+  <section class="about-section" id="about">
+    <div class="about-container">
+      <div class="about-badge-card">
+        <img 
+          src="https://raw.githubusercontent.com/CreativeTugsDotCom/as/refs/heads/main/Screenshot%202026-10-06%20231559.png" 
+          alt="Mark Loftin, RN" 
+          class="about-avatar-img"
+          onerror="this.onerror=null; this.src='https://placehold.co/120x120/0f172a/10b981?text=Mark+Loftin';"
+        />
+        <h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-main); margin-bottom: 4px;">Mark Loftin, RN</h3>
+        <p style="color: var(--emerald-accent); font-weight: 600; font-size: 0.85rem; margin-bottom: 16px;">Founder & Lead Nurse Health Coach</p>
+        <p style="font-size: 0.875rem; color: var(--text-muted); line-height: 1.6;">Based in Davidson, North Carolina. Providing personalized 1-on-1 virtual and in-person metabolic optimization coaching.</p>
+      </div>
+
+      <div>
+        <span class="section-tag">Nurse-Led Expertise</span>
+        <h2 class="section-title" style="margin-bottom: 20px;">Bridging Clinical Knowledge & Modern Biohacking</h2>
+        <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 20px;">
+          As a Registered Nurse and Health Coach, Mark Loftin provides a uniquely grounded approach to health optimization. Rather than relying on generic fad diets or unproven hacks, YOURNHC combines biological assessments with actionable daily habits.
+        </p>
+        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin-bottom: 28px;">
+          Whether you are striving to optimize insulin sensitivity, lose weight sustainably, explore GLP-1 and peptide education, or improve employee wellness in your workplace, YOURNHC guides you step-by-step.
+        </p>
+        <button type="button" class="btn-primary-header open-audit-modal">
+          <span>Book a Consultation with Mark</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- METABOLIC AUDIT MODAL DIALOG -->
+  <div class="modal-backdrop" id="auditModal">
+    <div class="modal-box">
+      <button class="modal-close-btn" id="closeModalBtn" aria-label="Close modal">&times;</button>
+      
+      <div id="modalFormContainer">
+        <span class="section-tag">Clinical Assessment</span>
+        <h3 style="font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-main); margin-bottom: 8px;">Schedule Your Metabolic Audit</h3>
+        <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 20px;">Connect directly with Mark Loftin, RN to evaluate your biological markers and goals.</p>
+
+        <form id="auditForm">
+          <div class="form-group">
+            <label class="form-label" for="userName">Full Name *</label>
+            <input class="form-input" type="text" id="userName" required placeholder="e.g. Sarah Jenkins" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="userEmail">Email Address *</label>
+            <input class="form-input" type="email" id="userEmail" required placeholder="name@example.com" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="userPhone">Phone Number *</label>
+            <input class="form-input" type="tel" id="userPhone" required placeholder="e.g. 980-349-5944" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="primaryGoal">Primary Health Goal *</label>
+            <select class="form-select" id="primaryGoal" required>
+              <option value="">Select your target objective...</option>
+              <option value="metabolic-audit">Metabolic Assessment & Biomarkers</option>
+              <option value="weight-loss">Sustainable Weight Loss / GLP-1 Support</option>
+              <option value="peptides">Peptide & Biohacking Coaching</option>
+              <option value="workplace">Workplace Wellness Solution</option>
+            </select>
+          </div>
+
+          <button type="submit" class="form-submit-btn">Submit Audit Request</button>
+        </form>
+
+        <div class="form-success-banner" id="formSuccess">
+          <strong style="color: var(--emerald-accent); display: block; font-size: 1rem; margin-bottom: 4px;">Request Received!</strong>
+          Thank you for reaching out. Mark Loftin, RN will contact you shortly to confirm your audit consultation.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer" id="contact">
+    <div class="footer-container">
+      <div>
+        <a href="#top" aria-label="YOURNHC Home" style="display: inline-block; margin-bottom: 12px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <img 
+              src="https://raw.githubusercontent.com/CreativeTugsDotCom/as/refs/heads/main/Screenshot%202026-10-06%20230532.png" 
+              alt="YOURNHC Emblem" 
+              class="footer-logo-img" 
+              onerror="this.onerror=null; this.src='https://placehold.co/80x80/0f172a/10b981?text=NHC';"
+            />
+            <div class="logo-text-group" style="opacity: 1; animation: none;">
+              <span class="logo-wordmark" style="font-size: 1.25rem;">YOUR<span class="accent-text">NHC</span></span>
+              <span class="logo-subtext" style="font-size: 0.58rem;">Your Nurse Health Coach</span>
+            </div>
+          </div>
+        </a>
+        <p class="footer-brand-p">
+          Empowering individuals and organizations through nurse-led metabolic optimization and health coaching.
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-heading">Services</div>
+        <ul class="footer-links">
+          <li><a href="#audit">Metabolic Audit</a></li>
+          <li><a href="#services">Weight Loss Coaching</a></li>
+          <li><a href="#biohacking">Peptide Strategy</a></li>
+          <li><a href="#corporate">Corporate Wellness</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-heading">Location</div>
+        <p style="color: var(--text-muted); line-height: 1.6;">
+          PO Box 4447<br />
+          Davidson, NC 28036<br />
+          United States
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-heading">Contact</div>
+        <p style="color: var(--text-muted); line-height: 1.6;">
+          Phone: <a href="tel:9803495944" style="color: var(--emerald-accent);">980-349-5944</a><br />
+          Hours: Mon - Fri: 8:00 am - 7:00 pm
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 YOURNHC PLLC. All Rights Reserved. Mark Loftin, RN.</div>
+      <div style="font-size: 0.8rem; color: var(--text-dim);">
+        Disclaimer: Health coaching provides support and education; it does not constitute medical diagnosis or treatment.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.getElementById('mainHeader');
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mobileOverlay = document.getElementById('mobileMenuOverlay');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+      
+      const modal = document.getElementById('auditModal');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const openModalBtns = document.querySelectorAll('.open-audit-modal');
+      const auditForm = document.getElementById('auditForm');
+      const formSuccess = document.getElementById('formSuccess');
+
+      /* Header sticky glass blur transition on scroll */
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+
+      /* Mobile Navigation Menu Toggle */
+      if (mobileBtn && mobileOverlay) {
+        mobileBtn.addEventListener('click', () => {
+          const isOpen = mobileOverlay.classList.contains('open');
+          if (isOpen) {
+            mobileOverlay.classList.remove('open');
+            mobileBtn.classList.remove('open');
+            document.body.style.overflow = '';
+          } else {
+            mobileOverlay.classList.add('open');
+            mobileBtn.classList.add('open');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+
+        /* Close drawer when clicking nav link */
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileOverlay.classList.remove('open');
+            mobileBtn.classList.remove('open');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+
+      /* Modal Event Handlers */
+      openModalBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          if (mobileOverlay.classList.contains('open')) {
+            mobileOverlay.classList.remove('open');
+            mobileBtn.classList.remove('open');
+          }
+        });
+      });
+
+      const closeModal = () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      };
+
+      if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeModal);
+      }
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      /* Audit Form Submission Handler */
+      if (auditForm) {
+        auditForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          auditForm.style.display = 'none';
+          formSuccess.style.display = 'block';
+
+          setTimeout(() => {
+            closeModal();
+            setTimeout(() => {
+              auditForm.reset();
+              auditForm.style.display = 'block';
+              formSuccess.style.display = 'none';
+            }, 400);
+          }, 3200);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
